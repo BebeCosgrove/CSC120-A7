@@ -90,8 +90,10 @@ public class Library extends Building{
      * @param title title of book or the key in collection
      */
     public void checkOut(String title){
-      if (isAvailable(title) == true){
+      if (isAvailable(title)){
         collection.replace(title, false);
+      } else{
+        throw new RuntimeException("Book is not in available and therefore cannot be checked out.");
       }
 
     }
@@ -118,11 +120,7 @@ public class Library extends Building{
      * @return T/F depending on whether or not title is a key or not
      */
     public boolean containsTitle(String title){
-      if(collection.containsKey(title) == true){
-        return true;
-      } else {
-        return false;
-      }
+      return collection.containsKey(title);
     }
 
     /**
@@ -131,24 +129,14 @@ public class Library extends Building{
      * @return T/F depending on whether or not title is available in library
      */
     public boolean isAvailable(String title){
-      if(containsTitle(title) == true){
-        if(collection.get(title) == true){
-          return true;
-        } else{
-          return false;
-        }
-      } else{
-        return false;
-      }
-    } 
-
+      return containsTitle(title) && collection.get(title);
+    }
 
     /**
      * Prints out the library collection alongside checkout status
      */
     public void printCollection(){
-      Set<String> setofTitles = collection.keySet(); // creates a set of the keys in collection
-      for (String title: setofTitles){
+      for (String title: collection.keySet()){
         System.out.println("Title:" + title);
         if (isAvailable(title)){
           System.out.println("Item is available");

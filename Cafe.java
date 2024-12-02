@@ -47,21 +47,23 @@ public class Cafe extends Building{
             if (this.nCoffeeOunces < size){
                 restock(size,0,0,0);
 
-            } if (this.nSugarPackets < nSugarPackets){
+            } 
+            if (this.nSugarPackets < nSugarPackets){
                 restock(0, nSugarPackets, 0, 0);
 
-            } if (this.nCreams < nCreams){
+            } 
+            if (this.nCreams < nCreams){
                 restock(0,0,nCreams,0);
-            } if (this.nCups - 1 <= 0){
+            } 
+            if (this.nCups - 1 <= 0){
                 restock(0,0,0,nCups);
             }
-        } else {
-            this.nCoffeeOunces = this.nCoffeeOunces - size;
-            this.nSugarPackets = this.nSugarPackets - nSugarPackets;
-            this.nCreams = this.nCreams - nCreams;
-            this.nCups = this.nCups - 1;
+        } 
+        this.nCoffeeOunces = this.nCoffeeOunces - size;
+        this.nSugarPackets = this.nSugarPackets - nSugarPackets;
+        this.nCreams = this.nCreams - nCreams;
+        this.nCups = this.nCups - 1;
         
-        }
         System.out.println(("Amount of coffee ounces in inventory: " +this.nCoffeeOunces));
         System.out.println("Amount of sugar packets in inventory: " + this.nSugarPackets);
         System.out.println("Amount of cream in inventory: " + this.nCreams);
@@ -81,21 +83,23 @@ public class Cafe extends Building{
             if (this.nCoffeeOunces < size){
                 restock(size,0,0,0);
 
-            } if (this.nSugarPackets < nSugarPackets){
+            } 
+            if (this.nSugarPackets < nSugarPackets){
                 restock(0, nSugarPackets, 0, 0);
 
-            } if (this.nCreams < nCreams){
+            } 
+            if (this.nCreams < nCreams){
                 restock(0,0,nCreams,0);
-            } if (this.nCups < nCups){
+            } 
+            if (this.nCups < nCups){
                 restock(0,0,0,nCups);
             }
-        } else {
-            this.nCoffeeOunces = this.nCoffeeOunces - size;
-            this.nSugarPackets = this.nSugarPackets - nSugarPackets;
-            this.nCreams = this.nCreams - nCreams;
-            this.nCups = this.nCups - nCups;
+        } 
+        this.nCoffeeOunces = this.nCoffeeOunces - size;
+        this.nSugarPackets = this.nSugarPackets - nSugarPackets;
+        this.nCreams = this.nCreams - nCreams;
+        this.nCups = this.nCups - nCups;
         
-        }
         System.out.println(("Amount of coffee ounces in inventory: " +this.nCoffeeOunces));
         System.out.println("Amount of sugar packets in inventory: " + this.nSugarPackets);
         System.out.println("Amount of cream in inventory: " + this.nCreams);
@@ -112,11 +116,14 @@ public class Cafe extends Building{
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
         if (nCoffeeOunces > 0){ // if variable is 0 that means that it doesn't need to be restocked
             this.nCoffeeOunces = nCoffeeOunces + 50 ;
-        } if (nSugarPackets > 0){ 
+        } 
+        if (nSugarPackets > 0){ 
             this.nSugarPackets = nSugarPackets + 50;
-        } if (nCreams > 0) {
+        } 
+        if (nCreams > 0) {
             this.nCreams = nCreams;
-        } if (nCups > 0){
+        } 
+        if (nCups > 0){
             this.nCups = nCups;
         }
 

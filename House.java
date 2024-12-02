@@ -1,7 +1,6 @@
 /* This is a stub for the House class */
 
 import java.util.ArrayList;
-import javax.management.RuntimeErrorException;
 
 public class House extends Building {
   private ArrayList<String> residents; // The <String> tells Java what kind of data we plan to store IN the ArrayList
@@ -24,6 +23,7 @@ public class House extends Building {
    * @param name
    * @param address
    * @param nFloors
+   * @param hasDiningRoom
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom){
     this(name, address, nFloors, hasDiningRoom, false); // sets hasDiningRoom and elevator both to false to have deafult values as false
@@ -69,7 +69,7 @@ public class House extends Building {
    * @param name name of person
    */
   public void moveIn(String name){
-    if(isResident(name) == true){
+    if (isResident(name)){
       throw new RuntimeException("Person is already in house");
     } else{
       residents.add(name);
@@ -98,12 +98,8 @@ public class House extends Building {
    * @return boolean based on whether person is either in house or not
    */
   public boolean isResident(String person){
-    if(residents.contains(person)){
-      return true;
-    } else{
-      return false;
+     return residents.contains(person);
     }
-  }
 
   /**
      * Overrided method of showOptions() that shows the options available for House class
